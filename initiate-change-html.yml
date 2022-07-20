@@ -6,8 +6,9 @@
   tasks:
     -
       name: "perform a change with Ansible task(s)"
-      uri:
-        url: "replace this module with the module of your choice to perform the change"
+      copy:
+        content: 'The application is broken'
+        dest: /var/www/html/index.html
     -
       name: "send Dynatrace custom configuration event with business context information"
       uri:
