@@ -24,6 +24,7 @@
               - SERVICE
               - PROCESS_GROUP_INSTANCE
               - HOST
+              - HTTP_CHECK
               tags:
               - context: CONTEXTLESS
                 key: "{{ configuration_tag_key }}"
