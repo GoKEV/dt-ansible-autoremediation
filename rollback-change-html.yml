@@ -1,13 +1,13 @@
 # rollback change
 ---
 -
-  hosts: localhost
+  hosts: all
   name: "rollback change with Ansible"
   tasks:
     -
       name: "rollback a change with Ansible task(s)"
       copy:
-        content: 'The application is broken'
+        content: 'The application is working'
         dest: /var/www/html/index.html
     -
       name: "send Dynatrace custom configuration event with business context information"
