@@ -1,0 +1,9 @@
+# rollback change
+---
+- hosts: all
+  name: "rollback change with Ansible"
+  tasks:
+    - name: "rollback a change with Ansible task(s)"
+      copy:
+        content: 'The application is working'
+        dest: /var/www/html/index.html
