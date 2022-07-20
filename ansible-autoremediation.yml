@@ -246,17 +246,17 @@
           set_fact:
             dynatrace_remediation_comment: "{{ item.content }}"
           with_items: "{{ dynatrace_problem_comments_response.json.comments }}"
-        -
-          name: "send email notification with remediation success"
-          when: state == "RESOLVED" and dynatrace_remediation_triggered is defined and dynatrace_remediation_triggered == True and send_email == True
-          mail:
-            subtype: html
-            host: "{{ smtp_host }}"
-            port: "{{ smtp_port }}"
-            username: "{{ smtp_user }}"
-            password: "{{ smtp_password }}"
-            to: "{{ email_receiver }}"
-            from: "{{ smtp_from }}"
-            subject: "PROBLEM {{ problemId }} {{ problemTitle }} | Dynatrace and Ansible have automatically resolved a problem"
-            body: "<div><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/dynatrace_logo.png\"><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/ansible_redhat_logo.png\"></div><div><h2>Dynatrace automatically detected a '<span style=\"color:red\">{{ problemSeverity }}</span>' severity problem which impacts '<span style=\"color:red\">{{ problemImpact }}</span>' type entities.</h2><hr><h3>The problem was <span style=\"color:green\">resolved automatically</span>.  Dynatrace, with Ansible, '{{ dynatrace_remediation_comment }}'.</p>View the problem details in Dynatrace here '{{ problemUrl }}'.</h3></div><div><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/davis_photo.png\"></div>"
-      when: state == "RESOLVED"
+#        -
+#          name: "send email notification with remediation success"
+#          when: state == "RESOLVED" and dynatrace_remediation_triggered is defined and dynatrace_remediation_triggered == True and send_email == True
+#          mail:
+#            subtype: html
+#            host: "{{ smtp_host }}"
+#            port: "{{ smtp_port }}"
+#            username: "{{ smtp_user }}"
+#            password: "{{ smtp_password }}"
+#            to: "{{ email_receiver }}"
+#            from: "{{ smtp_from }}"
+#            subject: "PROBLEM {{ problemId }} {{ problemTitle }} | Dynatrace and Ansible have automatically resolved a problem"
+#            body: "<div><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/dynatrace_logo.png\"><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/ansible_redhat_logo.png\"></div><div><h2>Dynatrace automatically detected a '<span style=\"color:red\">{{ problemSeverity }}</span>' severity problem which impacts '<span style=\"color:red\">{{ problemImpact }}</span>' type entities.</h2><hr><h3>The problem was <span style=\"color:green\">resolved automatically</span>.  Dynatrace, with Ansible, '{{ dynatrace_remediation_comment }}'.</p>View the problem details in Dynatrace here '{{ problemUrl }}'.</h3></div><div><img src=\"https://tpc-easytravel-demo.s3.amazonaws.com/davis_photo.png\"></div>"
+#      when: state == "RESOLVED"
