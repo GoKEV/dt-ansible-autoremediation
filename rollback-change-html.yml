@@ -1,16 +1,13 @@
 # rollback change
 ---
--
-  hosts: all
+- hosts: all
   name: "rollback change with Ansible"
   tasks:
-    -
-      name: "rollback a change with Ansible task(s)"
+    - name: "rollback a change with Ansible task(s)"
       copy:
         content: 'The application is working'
         dest: /var/www/html/index.html
-    -
-      name: "send Dynatrace custom configuration event with business context information"
+    - name: "send Dynatrace custom configuration event with business context information"
       uri:
         url: https://{{ dynatrace_api_url }}/api/v1/events?Api-Token={{ dynatrace_token }}
         method: POST
